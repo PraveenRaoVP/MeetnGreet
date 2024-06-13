@@ -87,10 +87,8 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    
-
-    fun acceptCall() {
-        Log.i("HomeViewModel", "Accepting call from ${currentUser!!.first}")
+    fun acceptCall(navigateTo: (String, String) -> Unit) {
+        Log.i("HomeViewModel", "Accepting call from ${currentUser!!.first}") // TODO: currentUser is returning null, fix it
     }
 
     fun rejectCall() {

@@ -78,7 +78,7 @@ fun HomeScreen(
                         Text(uiState.callReceiveText!!)
                         Row {
                             Button(onClick = {
-                                viewModel.acceptCall()
+                                viewModel.acceptCall(onNavigate)
                             }) {
                                 Text("Accept")
                             }

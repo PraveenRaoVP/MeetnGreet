@@ -15,6 +15,7 @@ import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import dagger.hilt.android.AndroidEntryPoint
+import org.webrtc.SurfaceViewRenderer
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -30,6 +31,9 @@ class MainService : Service(), MainRepository.Listener {
 
     companion object {
         var listener: ServiceListener? = null
+        var endCallListener: EndCallListener? = null
+        var remoteSurfaceView: SurfaceViewRenderer? = null
+        var localSurfaceView: SurfaceViewRenderer? = null
     }
 
     override fun onCreate() {
@@ -113,5 +117,9 @@ class MainService : Service(), MainRepository.Listener {
 
     interface ServiceListener {
         fun onCallReceived(mode: Data)
+    }
+
+    interface EndCallListener {
+        fun onCallEnded()
     }
 }
